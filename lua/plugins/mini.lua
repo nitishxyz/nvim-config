@@ -25,6 +25,6 @@ return {
 			end
 		end
 
-		vim.keymap.set({ "n", "i", "v" }, "<C-r>", minifiles_toggle)
+		vim.keymap.set({ "n", "i", "v" }, "<leader>r", minifiles_toggle)
 	end,
 }
