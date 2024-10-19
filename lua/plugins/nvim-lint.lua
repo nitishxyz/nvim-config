@@ -1,5 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
+	"rshkarin/mason-nvim-lint",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
@@ -19,6 +20,21 @@ return {
 			vim = { "vint" },
 			lua = { "luacheck" },
 		}
+
+		local mason_lint = require("mason-nvim-lint")
+		mason_lint.setup({
+			ensure_installed = {
+				"vale",
+				"eslint_d",
+				"stylelint",
+				"htmlhint",
+				"jsonlint",
+				"yamllint",
+				"shellcheck",
+				"vint",
+				"luacheck",
+			},
+		})
 
 		local lint_autogroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
